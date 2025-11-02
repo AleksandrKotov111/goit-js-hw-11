@@ -4,11 +4,16 @@ import 'izitoast/dist/css/iziToast.min.css';
 const form = document.querySelector('.form');
 
 import { getImagesByQuery } from './js/pixabay-api';
-import {createGallery, clearGallery, showLoader, hideLoader,} from './js/render-functions';
+import {
+  createGallery,
+  clearGallery,
+  showLoader,
+  hideLoader,
+} from './js/render-functions';
 
-form.addEventListener('submit', event => {
-  event.preventDefault();
-  const textValue = event.target.elements['search-text'].value.trim();
+form.addEventListener('submit', ev => {
+  ev.preventDefault();
+  const textValue = ev.target.elements['search-text'].value.trim();
   if (textValue === '') {
     iziToast.error({
       title: 'Please write word!',
